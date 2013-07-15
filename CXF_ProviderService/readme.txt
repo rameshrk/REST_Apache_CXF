@@ -1,1 +1,0 @@
-If you get java.lang.NoClassDefFoundError: com.sun.org.apache.xerces.internal.dom.DocumentImpl error, resolve the issue uing the following link - http://issues.apache.org/jira/browse/GERONIMO-3792

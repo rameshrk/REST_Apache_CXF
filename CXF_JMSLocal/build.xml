@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<project name="Order Process Local transport" default="build" basedir=".">
-    <import file="common_build.xml"/>
-
-    <target name="client" description="run demo client" depends="build">
-        <cxfrun classname="demo.order.client.Client" />
-    </target>
-</project>
