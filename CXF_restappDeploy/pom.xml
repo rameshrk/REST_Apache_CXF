@@ -1,0 +1,97 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<!-- Defines group id for cxfbook -->
+	<groupId>com.packtpub.cxfbook</groupId>
+	<!-- Name of the artifact -->
+	<artifactId>orderapp</artifactId>
+	<!-- Packing format. We want to pakacge this as a WAR archive -->
+	<packaging>war</packaging>
+	<!-- Version for the oderapp arifact -->
+	<version>1.0-SNAPSHOT</version>
+	<name>orderapp maven webapp</name>
+	<properties>
+		<!-- Version of CXF. Change this to latets version for building against 
+			latest CXF distribution -->
+		<cxf.version>2.6.2</cxf.version>
+	</properties>
+	<build>
+		<!--Directory where the source code is located -->
+		<sourceDirectory>src/main/java/</sourceDirectory>
+		<resources>
+			<resource>
+				<!-- Include properties and xml file from src folder -->
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*.properties</include>
+					<include>**/*.xml</include>
+				</includes>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<!-- Maven Plugin used to build WAR archive -->
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.0.1</version>
+				<configuration>
+					<!-- Directory for Web application -->
+					<webappDirectory>webapp</webappDirectory>
+					<webResources>
+					</webResources>
+				</configuration>
+			</plugin>
+			<plugin>
+				<!-- Plugin for compiling Java code -->
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<!-- Java version for compiling the source code -->
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+		</plugins>
+		<finalName>orderapp</finalName>
+	</build>
+	<dependencies>
+		<dependency>
+			<!-- Apache JAX-WS CXF Dependency for WAR and JAX-WS Client -->
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxws</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+		<dependency>
+			<!-- Apache JAX-WS CXF Dependency for JAX-WS Client -->
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-jms</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-core</artifactId>
+			<version>5.0.0</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.activemq</groupId>
+					<artifactId>activeio-core</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http-jetty</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxrs</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+
+
+	</dependencies>
+</project>

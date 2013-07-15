@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Chapter 2 Order application" default="build" basedir=".">
+	<import file="common_build.xml"/>        
+    <target name="client" description="run client" depends="build">
+        <property name="param" value=""/>
+        <cxfrun classname="demo.order.dispatcher.DispatcherClient" />
+    </target>
+	<target name="server" description="run server" depends="build">
+        <property name="param" value=""/>
+        <cxfrun classname="demo.order.provider.Server" />
+    </target> 
+</project>

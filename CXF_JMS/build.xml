@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<project name="Order Process JMS Queue" default="build" basedir=".">
+    <property environment="env"/>
+    <condition property="activemq.home" value="${env.ACTIVEMQ_HOME}">
+        <isset property="env.ACTIVEMQ_HOME"/>
+    </condition>
+    <fail message="this sample need to use activemq, please setup  ACTIVEMQ_HOME in your environment"
+        unless="activemq.home"/>
+    <condition property="activemq.version" value="${env.ACTIVEMQ_VERSION}">
+	<isset property="env.ACTIVEMQ_VERSION"/>
+    </condition>
+    <fail message="this sample need to use activemq, please setup ACTIVEMQ_VERSION in your envrionment"
+        unless="activemq.version"/>
+
+    <property name="thirdparty.classpath" location="${activemq.home}/activemq-all-${activemq.version}.jar"/>
+
+    <import file="common_build.xml"/>
+
+    <target name="start.jmsbroker" description="run jms broker" depends="build">
+       <cxfrun classname="demo.order.broker.MessageBroker" /> 
+    </target>
+
+    <target name="client" description="run demo client" depends="build">
+        <cxfrun classname="demo.order.client.Client" />
+    </target>
+    
+    <target name="server" description="run demo server" depends="build">
+        <cxfrun classname="demo.order.server.Server" />
+    </target>
+
+    <property name="cxf.war.file.name" value="orderappjms"/>
+    <target name="war" depends="build">
+	  <cxfwar filename="${cxf.war.file.name}.war" webxml="webapp/WEB-INF/web.xml" />
+    </target>
+
+</project>

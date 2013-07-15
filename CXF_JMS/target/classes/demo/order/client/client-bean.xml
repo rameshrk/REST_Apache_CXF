@@ -1,0 +1,19 @@
+<beans xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:jaxws="http://cxf.apache.org/jaxws" 
+xmlns:p="http://www.springframework.org/schema/p"
+xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+	<jaxws:client id="orderClient" serviceClass="demo.order.OrderProcess" address="jms://" >
+		<jaxws:features>   
+			<bean class="org.apache.cxf.transport.jms.JMSConfigFeature" p:jmsConfig-ref="jmsConfig"/>   
+		</jaxws:features>   
+	</jaxws:client>  
+	<bean id="jmsConfig" class="org.apache.cxf.transport.jms.JMSConfiguration"  
+		p:connectionFactory-ref="jmsConnectionFactory"  
+		p:targetDestination="test.cxf.jmstransport.queue" />  
+	<bean id="jmsConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">   
+	   <property name="brokerURL" value="tcp://localhost:61616" />   
+	</bean>  
+
+</beans>
