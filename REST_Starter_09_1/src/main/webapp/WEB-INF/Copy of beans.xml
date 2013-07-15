@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+
+	xmlns:cxf="http://cxf.apache.org/core"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://cxf.apache.org/jaxrs
+http://cxf.apache.org/schemas/jaxrs.xsd
+http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
+
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-extension-*.xml" />
+
+	<jaxrs:server id="customerResourceService" address="/">
+		<jaxrs:serviceBeans>
+			<ref bean="customerResource" />
+		</jaxrs:serviceBeans>
+
+		<jaxrs:providers>
+			<ref bean="jaxb" />
+		</jaxrs:providers>
+
+		<jaxrs:features>
+			<cxf:logging />
+		</jaxrs:features>
+
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+			<entry key="xml" value="application/xml" />
+			<entry key="html" value="text/html" />
+			<entry key="txt" value="text/plain" />
+			<entry key="txta" value="text/plain" />
+		</jaxrs:extensionMappings>
+
+	</jaxrs:server>
+
+	
+	<bean id="jaxb" class="org.apache.cxf.jaxrs.provider.JAXBElementProvider">
+      <property name="singleJaxbContext" value="true"/>
+      <property name="extraClass">
+         <list>
+           <value>com.restfully.shop.domain.Customers</value>
+           <value>com.restfully.shop.domain.Customer</value>  
+         </list>
+      </property>
+</bean>
+
+	<bean id="customer" class="com.restfully.shop.domain.Customer">
+	</bean>
+
+	<bean id="customers" class="com.restfully.shop.domain.Customers">
+	</bean>
+
+	<bean id="customerResource" class="com.restfully.shop.services.CustomerResource">
+	</bean>
+
+
+
+
+</beans>

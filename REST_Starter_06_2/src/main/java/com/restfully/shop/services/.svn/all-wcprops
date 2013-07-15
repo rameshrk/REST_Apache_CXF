@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svnroot/resteasy/!svn/ver/862/tags/RESTEASY_JAXRS_1_2_GA/examples/oreilly-workbook/ex06_2/src/main/java/com/restfully/shop/services
+END
+CustomerResource.java
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svnroot/resteasy/!svn/ver/862/tags/RESTEASY_JAXRS_1_2_GA/examples/oreilly-workbook/ex06_2/src/main/java/com/restfully/shop/services/CustomerResource.java
+END
+ShoppingApplication.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svnroot/resteasy/!svn/ver/862/tags/RESTEASY_JAXRS_1_2_GA/examples/oreilly-workbook/ex06_2/src/main/java/com/restfully/shop/services/ShoppingApplication.java
+END
+JavaMarshaller.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svnroot/resteasy/!svn/ver/862/tags/RESTEASY_JAXRS_1_2_GA/examples/oreilly-workbook/ex06_2/src/main/java/com/restfully/shop/services/JavaMarshaller.java
+END

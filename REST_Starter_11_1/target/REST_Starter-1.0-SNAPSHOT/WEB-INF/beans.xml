@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:cxf="http://cxf.apache.org/core"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://cxf.apache.org/jaxrs
+http://cxf.apache.org/schemas/jaxrs.xsd
+http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd
+http://www.springframework.org/schema/util
+	http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-extension-*.xml" />
+
+	<jaxrs:server id="customerResourceService" address="/">
+		<jaxrs:serviceBeans>
+			<ref bean="customerResource" />
+			<!-- <ref bean="orderResource" />
+			<ref bean="storeResource" /> -->
+		</jaxrs:serviceBeans>
+
+		<jaxrs:providers>
+			<ref bean="jaxb" />
+		</jaxrs:providers>
+
+		<jaxrs:features>
+			<cxf:logging />
+		</jaxrs:features>
+
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json" />
+			<entry key="xml" value="application/xml" />
+			<entry key="html" value="text/html" />
+			<entry key="txt" value="text/plain" />
+			<entry key="txta" value="text/plain" />
+		</jaxrs:extensionMappings>
+
+	</jaxrs:server>
+
+
+	<bean id="jaxb" class="org.apache.cxf.jaxrs.provider.JAXBElementProvider">
+		<property name="singleJaxbContext" value="true" />
+		<property name="marshallerProperties" ref="propertiesMap" />
+		<property name="extraClass">
+			<list>
+				<value>com.restfully.shop.domain.Customer</value>
+				<!-- <value>com.restfully.shop.domain.Customers</value>
+				<value>com.restfully.shop.domain.LineItem</value>
+				<value>com.restfully.shop.domain.Link</value>
+				<value>com.restfully.shop.domain.Order</value>
+				<value>com.restfully.shop.domain.Orders</value> -->
+			</list>
+		</property>
+	</bean>
+
+	<util:map id="propertiesMap">
+		<entry key="jaxb.formatted.output">
+			<value type="java.lang.Boolean">true</value>
+		</entry>
+	</util:map>
+
+	<bean id="customer" class="com.restfully.shop.domain.Customer">
+	</bean>
+
+<!-- 	<bean id="customers" class="com.restfully.shop.domain.Customers">
+	</bean> -->
+
+	<bean id="customerResource" class="com.restfully.shop.services.CustomerResource">
+	</bean>
+	<!-- <bean id="orderResource" class="com.restfully.shop.services.OrderResource">
+	</bean>
+		<bean id="storeResource" class="com.restfully.shop.services.StoreResource">
+	</bean> -->
+
+
+</beans>

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svnroot/resteasy/!svn/ver/862/tags/RESTEASY_JAXRS_1_2_GA/examples/oreilly-workbook/ex09_2/src/main/java/com/restfully/shop/domain
+END
+Customer.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svnroot/resteasy/!svn/ver/862/tags/RESTEASY_JAXRS_1_2_GA/examples/oreilly-workbook/ex09_2/src/main/java/com/restfully/shop/domain/Customer.java
+END
+Customers.java
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svnroot/resteasy/!svn/ver/862/tags/RESTEASY_JAXRS_1_2_GA/examples/oreilly-workbook/ex09_2/src/main/java/com/restfully/shop/domain/Customers.java
+END
+LineItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svnroot/resteasy/!svn/ver/862/tags/RESTEASY_JAXRS_1_2_GA/examples/oreilly-workbook/ex09_2/src/main/java/com/restfully/shop/domain/LineItem.java
+END
+Order.java
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svnroot/resteasy/!svn/ver/862/tags/RESTEASY_JAXRS_1_2_GA/examples/oreilly-workbook/ex09_2/src/main/java/com/restfully/shop/domain/Order.java
+END
+Link.java
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svnroot/resteasy/!svn/ver/862/tags/RESTEASY_JAXRS_1_2_GA/examples/oreilly-workbook/ex09_2/src/main/java/com/restfully/shop/domain/Link.java
+END
+Orders.java
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svnroot/resteasy/!svn/ver/862/tags/RESTEASY_JAXRS_1_2_GA/examples/oreilly-workbook/ex09_2/src/main/java/com/restfully/shop/domain/Orders.java
+END
